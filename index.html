@@ -9,20 +9,17 @@
 <title>陳思婷 | Landscape Design Portfolio</title>
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+*{margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html{scroll-behavior:smooth;
 }
 
-body{
-    font-family:"Helvetica Neue", Arial, sans-serif;
-    background:#F8FAF7;
-    color:#2E3A32;
+body{font-family:"Helvetica Neue", Arial, sans-serif;
+background:#F8FAF7;
+color:#2E3A32;
 }
 
 /* 左側選單 */
@@ -132,8 +129,7 @@ body{
     color:#5D7564;
     margin-bottom:50px;
 }
-
-.project{
+    .project{
     margin-bottom:100px;
 }
 
@@ -156,7 +152,26 @@ body{
 
 /* 手機版 */
 
-@media(max-width:768px){
+.project img{
+    width:100%;
+    border-radius:10px;
+    transition:0.4s;
+    display:block;
+}
+
+.project:hover img{
+    transform:scale(1.02);
+}
+
+.project{
+    cursor:pointer;
+}
+
+.project a{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}@media(max-width:768px){
 
 .sidebar{
     width:100%;
@@ -207,7 +222,7 @@ body{
      object-fit:cover;
      border-radius:10px;">
 
-<div>>
+<div>
 <h1>陳思婷</h1>
 <h2>Landscape Design Portfolio</h2>
 <p> 
@@ -234,8 +249,9 @@ body{
 <h3>聯絡方式</h3>
 <p>Email：hlpss93189@gmail.com</p>
 <p>Phone：0989-111-239</p>
-</div>
 
+</div>
+</div>
 </div>
 
 </section>
@@ -243,41 +259,37 @@ body{
 <h2 class="section-title">Projects</h2>
 
 <div class="project">
-<a href="project01.html" class="project-link">
+<a href="project01.html">
 <img src="images/neihu/n1.jpg">
-<h3>內湖數據中心 ↗</h3>
-<p>
-View Project
-</p>
+<h3>內湖數據中心</h3>
+<p>Data Center Landscape Design</p>
 </a>
 </div>
-
+    
 <div class="project">
-<img src="images/fengming/f1.jpg"
-style="width:100%;border-radius:10px;">
+<a href="project02.html">
+<img src="images/fengming/f1.jpg">
 <h3>鳳鳴263地號</h3>
-<p>
-住宅開發景觀設計
-</p>
+<p>Residential Landscape Design</p>
+</a>
 </div>
     
 <div class="project">
-<img src="images/yuanta/y1.jpg"
-style="width:100%;border-radius:10px;">
+<a href="project03.html">
+<img src="images/yuanta/y1.jpg">
 <h3>元大大同大樓</h3>
-<p>
-商辦景觀設計
-</p>
+<p>Commercial Landscape Design</p>
+</a>
 </div>
     
 <div class="project">
-<img src="images/biyao/b1.jpg"
-style="width:100%;border-radius:10px;">
+<a href="project04.html">
+<img src="images/biyao/b1.jpg">
 <h3>碧瑤總部新莊副都心</h3>
-<p>
-企業總部景觀設計
-</p>
+<p>Headquarters Landscape Design</p>
+</a>
 </div>
+    
 </div></section>
 </div>
 </body>
