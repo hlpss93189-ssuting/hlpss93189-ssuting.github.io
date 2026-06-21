@@ -1,12 +1,3 @@
-原來你是把透視圖放在 images 資料夾裡面的 renderings 資料夾（也就是 images/renderings/...）！
-
-因為我上一個版本的程式碼路徑只有寫 renderings/...，少寫了前面的 images/，所以網頁才會找不到照片。
-
-這個修改非常簡單，你不需要手動一行一行改，我已經直接把底部的圖片路徑全部修正為 images/renderings/ 了。
-
-請一樣使用「全選、刪除、貼上」的方式，把你的網頁檔案替換成以下這份修正後的完整程式碼：
-
-HTML
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -301,16 +292,74 @@ HTML
             background: #dfe6df;
         }
 
+        /* 讓透視圖滑鼠移上去時顯示「放大鏡/手指」功能提示 */
         .rendering-item img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
             transition: 0.4s ease;
+            cursor: zoom-in; /* 滑鼠游標變成放大鏡 */
         }
 
         .rendering-item:hover img {
             transform: scale(1.03);
+            filter: brightness(0.95); /* 滑鼠滑過微暗，提示可以點擊 */
+        }
+
+        /* ==========================================
+           【全新加入】全螢幕大圖彈出視窗 (Lightbox) CSS
+           ========================================== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(18, 24, 20, 0.92); /* 帶有極深灰綠的高級感半透明黑底 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* 確保在最上層 */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 當被啟動時顯示出來 */
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 6px;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-overlay.active .lightbox-image {
+            transform: scale(1); /* 彈出時帶有微微放大的動態效果 */
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #ffffff;
+            font-size: 35px;
+            font-weight: 300;
+            cursor: pointer;
+            transition: 0.2s;
+            user-select: none;
+        }
+
+        .lightbox-close:hover {
+            color: #5D7564; /* 叉叉滑過時變回你的主題植物綠 */
         }
 
         /* RWD 手機版適應 */
@@ -376,6 +425,12 @@ HTML
             
             .rendering-item img {
                 height: 200px;
+            }
+
+            .lightbox-close {
+                top: 20px;
+                right: 25px;
+                font-size: 30px;
             }
         }
     </style>
@@ -548,6 +603,48 @@ HTML
         </section>
 
     </div>
+
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="放大透視圖">
+    </div>
+
+    <script>
+        const overlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const closeBtn = document.getElementById('lightboxClose');
+        
+        // 1. 抓取「其他透視圖區塊」裡面的所有圖片
+        const renderingImages = document.querySelectorAll('.rendering-grid img');
+
+        // 2. 為每一張透視圖綁定「點擊事件」
+        renderingImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src; // 把被點擊圖片的路徑複製到放大視窗中
+                overlay.classList.add('active'); // 顯示大圖外殼
+                document.body.style.overflow = 'hidden'; // 防止底層網頁跟著捲動
+            });
+        });
+
+        // 3. 點擊叉叉（✕）關閉大圖
+        closeBtn.addEventListener('click', closeLightbox);
+
+        // 4. 點擊旁邊黑色半透明區域也能關閉大圖
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closeLightbox();
+            }
+        });
+
+        // 關閉放大鏡視窗的共用功能
+        function closeLightbox() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // 恢復網頁捲動
+            setTimeout(() => {
+                lightboxImg.src = ''; // 關閉後清空路徑，維持效能
+            }, 300);
+        }
+    </script>
 </body>
 
 </html>
