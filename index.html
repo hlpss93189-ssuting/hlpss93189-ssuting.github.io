@@ -267,7 +267,7 @@
             display: block;
         }
 
-        /* 透視圖作品分組樣式 */
+        /* 透視圖與其他展示區共用樣式 */
         .rendering-group {
             margin-bottom: 60px;
         }
@@ -493,20 +493,17 @@
 </head>
 
 <body>
-    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
         <a href="#portfolio">作品集</a>
         <a href="#renderings">其他透視圖</a>
-    </nav>
+        <a href="#other">Other</a> </nav>
     
     <div class="main">
-        <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
 
-                <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
                          width:300px;
@@ -520,7 +517,7 @@
                         <h2>Landscape Design Portfolio</h2>
                         <p>
                             畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
-                            於學習及專案實作過程中，累積基地分析、景觀配置、設計提案到施工圖面整合與預算編列的完整經驗。
+                            於專案實作過程中，累積豐富的基地分析、景觀配置、設計提案、施工圖說繪製與預算控制經驗。
                         </p>
                         <p>
                             重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
@@ -529,56 +526,48 @@
                     </div>
                 </div>
 
-                <!-- 下半部：學經歷時間軸、技能與聯絡方式 -->
                 <div class="info">
                     <h3>學/經歷</h3>
                     <div class="timeline">
                         <div class="timeline-section">
-                            <div class="timeline-time">2020 – 2026</div>
+                            <div class="timeline-time">2016 – 2026</div>
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="company-title">六國景觀設計有限公司</div>
                                 <ul class="project-list">
                                     <li class="project-item"><span class="project-role">專案</span><span class="project-name">內湖數據中心競圖</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">南港彰化銀行競圖</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅鳳鳴集合住宅案</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅鳳鳴263地號</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">宏國凱撒辦公大樓</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">宏國大溪</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">堃達中和福祥段</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">碧瑤總部新莊副都心</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">陳廷杰-碧瑤總部新莊副都心</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">謙和板橋文化段</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">富邦北投承德大樓競圖</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">富邦北投承德大樓-競圖</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅鳳鳴26地號</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅建設【森鉅M 林境】</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅林口麗林段492地號</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅林口麗林段512地號</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">水美海鷗段</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">三群開發【築滿滿】</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">新潤建設【新潤朗格】</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">鴻禧花園都更</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">三群泰山塭仔圳</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">新潤建設長春段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">華業鴻禧花園都更</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">錦州街危老重建規劃案</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">泰隆鋼鐵【泰隆丰和】</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">新美齊建設【画世代】</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">吳非士泰隆中和福祥段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">吳非士新美齊板橋(成案)</span></li>
                                     <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">大同大樓案</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">台泥總部大樓</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">華業台灣水泥</span></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="timeline-section">
-                            <div class="timeline-time">2020</div>
+                            <div class="timeline-time">2015 – 2016</div>
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <div class="company-title">中原大學地景建築學系畢業</div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-section">
-                            <div class="timeline-time">2018 – 2019</div>
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="company-title">實習</div>
+                                <div class="company-title">中原大學地景城鄉規劃研究室</div>
                                 <ul class="project-list">
-                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新竹光明新村測繪調查</span></li>
-                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新富町市場活化（共感團隊）</span></li>
+                                    <li class="project-item"><span class="project-role">研究助理</span><span class="project-name">新竹海軍第六燃料廠</span></li>
+                                    <li class="project-item"><span class="project-role">研究助理</span><span class="project-name">人本街道設計手冊</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -602,7 +591,6 @@
             </div>
         </section>
         
-        <!-- 作品集區塊 -->
         <section class="portfolio" id="portfolio">
             <h2 class="section-title">Projects</h2>
 
@@ -623,8 +611,7 @@
             </div>
 
             <div class="project">
-               <a href="project03.html">
-                    <img src="images/yuanta/y1.jpg">
+                <a href="project03.html"> <img src="images/yuanta/y1.jpg">
                     <h3>元大大同大樓</h3>
                     <p>Commercial Landscape Design</p>
                 </a>
@@ -639,22 +626,19 @@
             </div>
         </section>
 
-        <!-- 按案子分類的透視圖展示區 -->
         <section class="renderings-section" id="renderings">
             <h2 class="section-title">Renderings</h2>
             
-            <!-- 案子 A: 森鉅鳳鳴26地號 (4張) -->
             <div class="rendering-group">
-                <div class="rendering-group-title">森鉅鳳鳴26地號</div>
+                <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="森鉅鳳鳴26地號"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="森鉅鳳鳴26地號"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="森鉅鳳鳴26地號"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-4.jpg" alt="森鉅鳳鳴26地號"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-4.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
                 </div>
             </div>
 
-            <!-- 案子 B: 新潤建設【新潤朗格】 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">新潤建設【新潤朗格】</div>
                 <div class="rendering-grid">
@@ -665,7 +649,6 @@
                 </div>
             </div>
 
-            <!-- 案子 C: 森鉅建設【森鉅M 林境】 (6張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
                 <div class="rendering-grid">
@@ -677,12 +660,30 @@
                     <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                 </div>
             </div>
+        </section>
 
+        <section class="renderings-section" id="other" style="border-top: 1px solid #e5e5e5; margin-top: 50px; padding-top: 80px;">
+            <h2 class="section-title">Other</h2>
+            
+            <div class="rendering-group">
+                <div class="rendering-group-title">On-Site | 工地監造與現場放樣</div>
+                <div class="rendering-grid">
+                    <div class="rendering-item"><img src="images/other/site1.jpg" alt="On-Site | 工地現場資材覆核"></div>
+                    <div class="rendering-item"><img src="images/other/site2.jpg" alt="On-Site | 基地實地測繪調查"></div>
+                </div>
+            </div>
+
+            <div class="rendering-group">
+                <div class="rendering-group-title">Studio | 實體模型與空間尺度研究</div>
+                <div class="rendering-grid">
+                    <div class="rendering-item"><img src="images/other/model1.jpg" alt="Studio | 手工模型製作紀錄"></div>
+                    <div class="rendering-item"><img src="images/other/model2.jpg" alt="Studio | 地形打樣與材質搭配"></div>
+                </div>
+            </div>
         </section>
 
     </div>
 
-    <!-- 大圖彈出視窗底層結構 -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
         
@@ -696,7 +697,6 @@
         <button class="lightbox-btn lightbox-next" id="lightboxNext">&#10095;</button>
     </div>
 
-    <!-- 控制連續滑動換頁的 JavaScript -->
     <script>
         const overlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImage');
@@ -705,6 +705,7 @@
         const nextBtn = document.getElementById('lightboxNext');
         const caption = document.getElementById('lightboxCaption');
         
+        // 這邊會自動將 Renderings 與 Other 的所有圖片一起串聯成相簿
         const imgList = Array.from(document.querySelectorAll('.rendering-grid img'));
         let currentIndex = 0;
 
