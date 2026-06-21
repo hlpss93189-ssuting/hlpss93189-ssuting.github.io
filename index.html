@@ -58,16 +58,29 @@
             margin-left: 220px;
         }
 
-        /* 首頁 */
+        /* 首頁區塊 */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 80px;
+            padding: 100px 80px;
         }
 
         .hero-content {
-            max-width: 700px;
+            max-width: 850px; /* 稍微放大最大寬度，讓排版更從容 */
+            width: 100%;
+        }
+
+        /* 上半部：照片與自我介紹橫向排列 */
+        .profile-block {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+            margin-bottom: 60px; /* 與下方經歷拉開距離 */
+        }
+
+        .profile-text {
+            flex: 1;
         }
 
         .hero h1 {
@@ -89,30 +102,38 @@
             margin-bottom: 20px;
         }
 
-        /* 個人資訊 */
+        /* 下半部：資訊與時間軸區塊 */
         .info {
-            margin-top: 40px;
+            margin-top: 20px;
+            border-top: 1px solid #e5e5e6; /* 加一條淡淡的水平分界線 */
+            padding-top: 40px;
         }
 
         .info h3 {
-            margin-top: 25px;
-            margin-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
             color: #5D7564;
+            font-size: 1.3rem;
+        }
+        
+        .info h3:first-child {
+            margin-top: 0; /* 第一個標題上方不留空 */
         }
 
         /* ==========================================
-           【全新加入】時間軸專用樣式
+           時間軸專用樣式（修正版：擁有完整寬度）
            ========================================== */
         .timeline {
             position: relative;
-            padding-left: 140px;
-            margin-top: 20px;
+            padding-left: 160px; /* 加大年份空間，防止字體壓縮 */
+            margin-top: 25px;
+            max-width: 700px; /* 限制時間軸寬度，維持精緻感 */
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 110px;
+            left: 125px; /* 主線對齊位置 */
             top: 8px;
             bottom: 8px;
             width: 1px;
@@ -121,15 +142,15 @@
 
         .timeline-section {
             position: relative;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .timeline-time {
             position: absolute;
-            left: -140px;
-            width: 90px;
+            left: -160px;
+            width: 105px;
             text-align: right;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             color: #7a877d;
             font-family: 'Times New Roman', Times, serif;
@@ -138,8 +159,8 @@
 
         .timeline-dot {
             position: absolute;
-            left: -33px;
-            top: 7px;
+            left: -38px; /* 精準置中於主線上 */
+            top: 8px;
             width: 6px;
             height: 6px;
             background-color: #5D7564;
@@ -154,7 +175,7 @@
             font-size: 16px;
             font-weight: bold;
             color: #2E3A32;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: 0.5px;
         }
 
@@ -165,7 +186,7 @@
         }
 
         .project-item {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: 14px;
             line-height: 1.6;
             color: #555555;
@@ -173,7 +194,7 @@
 
         .project-role {
             display: inline-block;
-            width: 75px;
+            width: 85px; /* 加寬職稱欄位，確保「景觀顧問」完美排版不擠壓 */
             color: #888888;
         }
 
@@ -181,11 +202,12 @@
             color: #2E3A32;
         }
 
+        /* 技能與聯絡資訊 */
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .skill {
@@ -193,6 +215,12 @@
             background: #EDF2EC;
             border-radius: 20px;
             font-size: 14px;
+        }
+
+        .contact-p {
+            line-height: 1.8;
+            color: #2E3A32;
+            margin-bottom: 8px;
         }
 
         /* 作品區 */
@@ -256,6 +284,11 @@
                 position: relative;
                 border-right: none;
                 border-bottom: 1px solid #e5e5e5;
+                padding: 30px 20px;
+            }
+            
+            .logo {
+                margin-bottom: 20px;
             }
 
             .main {
@@ -264,6 +297,11 @@
 
             .hero {
                 padding: 40px 30px;
+            }
+
+            .profile-block {
+                flex-direction: column; /* 手機版時照片與自介改為上下排列 */
+                gap: 30px;
             }
 
             .hero h1 {
@@ -312,83 +350,87 @@
     </nav>
     <div class="main">
         <section class="hero" id="home">
-            <div class="hero-content" style="display:flex;gap:50px;align-items:flex-start;">
+            <div class="hero-content">
 
-                <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
-                     width:300px;
-                     height:400px;
-                     object-fit:cover;
-                     border-radius:10px;">
+                <div class="profile-block">
+                    <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
+                         width:300px;
+                         height:400px;
+                         object-fit:cover;
+                         border-radius:10px;
+                         flex-shrink: 0;">
 
-                <div>
-                    <h1>陳思婷</h1>
-                    <h2>Landscape Design Portfolio</h2>
-                    <p>
-                        畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
-                        於學習及專案實作過程中，累積基地分析、景觀配置、設計提案及圖面整合經驗。
-                    </p>
-                    <p>
-                        重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
-                        創造兼具美感、機能性及永續價值的空間體驗。
-                    </p>
-                    <div class="info">
-                        
-                        <h3>學/經歷</h3>
-                        <div class="timeline">
-                            <div class="timeline-section">
-                                <div class="timeline-time">2020 – 2026</div>
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <div class="company-title">六國景觀設計有限公司</div>
-                                    <ul class="project-list">
-                                        <li class="project-item"><span class="project-role">專案</span><span class="project-name">碧瑤新莊總部</span></li>
-                                        <li class="project-item"><span class="project-role">專案</span><span class="project-name">新潤建設【新潤朗格】</span></li>
-                                        <li class="project-item"><span class="project-role">專案</span><span class="project-name">泰隆鋼鐵【泰隆丰和】</span></li>
-                                        <li class="project-item"><span class="project-role">專案</span><span class="project-name">崇利建設【崇利中山】</span></li>
-                                        <li class="project-item"><span class="project-role">專案</span><span class="project-name">元大大同大樓都更案</span></li>
-                                        <li class="project-item"><span class="project-role">景觀顧問</span><span class="project-name">台泥總部大樓【Tower Urban Oasis】</span></li>
-                                        <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅建設鳳鳴集合住宅案</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="timeline-section">
-                                <div class="timeline-time">2020</div>
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <div class="company-title">中原大學地景建築學系畢業</div>
-                                </div>
-                            </div>
-
-                            <div class="timeline-section">
-                                <div class="timeline-time">2018 – 2019</div>
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-content">
-                                    <div class="company-title">實習</div>
-                                    <ul class="project-list">
-                                        <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新竹光明新村測繪調查</span></li>
-                                        <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新富町市場活化（共感團隊）</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <h3>專業技能</h3>
-                        <div class="skills">
-                            <span class="skill">AutoCAD</span>
-                            <span class="skill">SketchUp</span>
-                            <span class="skill">Lumion</span>
-                            <span class="skill">Photoshop</span>
-                            <span class="skill">Illustrator</span>
-                            <span class="skill">Indesign</span>
-                            <span class="skill">Office</span>
-                        </div>
-                        
-                        <h3>聯絡方式</h3>
-                        <p>Email：hlpss93189@gmail.com</p>
-                        <p>Phone：0989-111-239</p>
-
+                    <div class="profile-text">
+                        <h1>陳思婷</h1>
+                        <h2>Landscape Design Portfolio</h2>
+                        <p>
+                            畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
+                            於學習及專案實作過程中，累積基地分析、景觀配置、設計提案及圖面整合經驗。
+                        </p>
+                        <p>
+                            重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
+                            創造兼具美感、機能性及永續價值的空間體驗。
+                        </p>
                     </div>
+                </div>
+
+                <div class="info">
+                    
+                    <h3>學/經歷</h3>
+                    <div class="timeline">
+                        <div class="timeline-section">
+                            <div class="timeline-time">2020 – 2026</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="company-title">六國景觀設計有限公司</div>
+                                <ul class="project-list">
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">碧瑤新莊總部</span></li>
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">新潤建設【新潤朗格】</span></li>
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">泰隆鋼鐵【泰隆丰和】</span></li>
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">崇利建設【崇利中山】</span></li>
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">元大大同大樓都更案</span></li>
+                                    <li class="project-item"><span class="project-role">景觀顧問</span><span class="project-name">台泥總部大樓【Tower Urban Oasis】</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅建設鳳鳴集合住宅案</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-section">
+                            <div class="timeline-time">2020</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="company-title">中原大學地景建築學系畢業</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-section">
+                            <div class="timeline-time">2018 – 2019</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="company-title">實習</div>
+                                <ul class="project-list">
+                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新竹光明新村測繪調查</span></li>
+                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新富町市場活化（共感團隊）</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>專業技能</h3>
+                    <div class="skills">
+                        <span class="skill">AutoCAD</span>
+                        <span class="skill">SketchUp</span>
+                        <span class="skill">Lumion</span>
+                        <span class="skill">Photoshop</span>
+                        <span class="skill">Illustrator</span>
+                        <span class="skill">Indesign</span>
+                        <span class="skill">Office</span>
+                    </div>
+                    
+                    <h3>聯絡方式</h3>
+                    <p class="contact-p">Email：hlpss93189@gmail.com</p>
+                    <p class="contact-p">Phone：0989-111-239</p>
+
                 </div>
             </div>
         </section>
