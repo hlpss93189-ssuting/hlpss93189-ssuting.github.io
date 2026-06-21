@@ -1,3 +1,12 @@
+原來你是把透視圖放在 images 資料夾裡面的 renderings 資料夾（也就是 images/renderings/...）！
+
+因為我上一個版本的程式碼路徑只有寫 renderings/...，少寫了前面的 images/，所以網頁才會找不到照片。
+
+這個修改非常簡單，你不需要手動一行一行改，我已經直接把底部的圖片路徑全部修正為 images/renderings/ 了。
+
+請一樣使用「全選、刪除、貼上」的方式，把你的網頁檔案替換成以下這份修正後的完整程式碼：
+
+HTML
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -267,36 +276,34 @@
             display: block;
         }
 
-        /* ==========================================
-           透視圖作品分組樣式
-           ========================================== */
+        /* 透視圖作品分組樣式 */
         .rendering-group {
-            margin-bottom: 60px; /* 案子與案子之間的間距 */
+            margin-bottom: 60px;
         }
 
         .rendering-group-title {
             font-size: 1.3rem;
             color: #2E3A32;
             margin-bottom: 20px;
-            border-left: 3px solid #5D7564; /* 左側精緻的灰綠小色條 */
+            border-left: 3px solid #5D7564;
             padding-left: 12px;
         }
 
         .rendering-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 一行放2張圖，乾淨清晰 */
-            gap: 25px; /* 圖片彼此的間距 */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
         }
 
         .rendering-item {
             overflow: hidden;
             border-radius: 8px;
-            background: #dfe6df; /* 圖片加載前的底色 */
+            background: #dfe6df;
         }
 
         .rendering-item img {
             width: 100%;
-            height: 280px; /* 控制單張圖的高度，排版極度整齊 */
+            height: 280px;
             object-fit: cover;
             display: block;
             transition: 0.4s ease;
@@ -375,7 +382,6 @@
 </head>
 
 <body>
-    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
@@ -384,11 +390,9 @@
     </nav>
     
     <div class="main">
-        <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
 
-                <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
                          width:300px;
@@ -411,7 +415,6 @@
                     </div>
                 </div>
 
-                <!-- 下半部：學經歷時間軸、技能與聯絡方式 -->
                 <div class="info">
                     <h3>學/經歷</h3>
                     <div class="timeline">
@@ -471,7 +474,6 @@
             </div>
         </section>
         
-        <!-- 作品集區塊 -->
         <section class="portfolio" id="portfolio">
             <h2 class="section-title">Projects</h2>
 
@@ -492,7 +494,7 @@
             </div>
 
             <div class="project">
-                <a href="project03.html">
+                <a href="images/yuanta/y1.jpg">
                     <img src="images/yuanta/y1.jpg">
                     <h3>元大大同大樓</h3>
                     <p>Commercial Landscape Design</p>
@@ -508,44 +510,38 @@
             </div>
         </section>
 
-        <!-- ==========================================
-           【全新改版】按案子分類的透視圖展示區
-           ========================================== -->
         <section class="renderings-section" id="renderings">
             <h2 class="section-title">Renderings</h2>
             
-            <!-- 案子 A: 森鉅建設鳳鳴集合住宅案 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="renderings/F2-1.jpg" alt="鳳鳴透視圖 1"></div>
-                    <div class="rendering-item"><img src="renderings/F2-2.jpg" alt="鳳鳴透視圖 2"></div>
-                    <div class="rendering-item"><img src="renderings/F2-3.jpg" alt="鳳鳴透視圖 3"></div>
-                    <div class="rendering-item"><img src="renderings/F2-4.jpg" alt="鳳鳴透視圖 4"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="鳳鳴透視圖 1"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="鳳鳴透視圖 2"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="鳳鳴透視圖 3"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-4.jpg" alt="鳳鳴透視圖 4"></div>
                 </div>
             </div>
 
-            <!-- 案子 B: 新潤建設【新潤朗格】 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">新潤建設【新潤朗格】</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="renderings/s1.jpg" alt="新潤朗格透視圖 1"></div>
-                    <div class="rendering-item"><img src="renderings/s2.jpg" alt="新潤朗格透視圖 2"></div>
-                    <div class="rendering-item"><img src="renderings/s3.jpg" alt="新潤朗格透視圖 3"></div>
-                    <div class="rendering-item"><img src="renderings/s4.jpg" alt="新潤朗格透視圖 4"></div>
+                    <div class="rendering-item"><img src="images/renderings/s1.jpg" alt="新潤朗格透視圖 1"></div>
+                    <div class="rendering-item"><img src="images/renderings/s2.jpg" alt="新潤朗格透視圖 2"></div>
+                    <div class="rendering-item"><img src="images/renderings/s3.jpg" alt="新潤朗格透視圖 3"></div>
+                    <div class="rendering-item"><img src="images/renderings/s4.jpg" alt="新潤朗格透視圖 4"></div>
                 </div>
             </div>
 
-            <!-- 案子 C: 森鉅建設【森鉅M 林境】 (6張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="renderings/L1.jpg" alt="M林境透視圖 1"></div>
-                    <div class="rendering-item"><img src="renderings/L2.jpg" alt="M林境透視圖 2"></div>
-                    <div class="rendering-item"><img src="renderings/L3.jpg" alt="M林境透視圖 3"></div>
-                    <div class="rendering-item"><img src="renderings/L4.jpg" alt="M林境透視圖 4"></div>
-                    <div class="rendering-item"><img src="renderings/L5.jpg" alt="M林境透視圖 5"></div>
-                    <div class="rendering-item"><img src="renderings/L6.jpg" alt="M林境透視圖 6"></div>
+                    <div class="rendering-item"><img src="images/renderings/L1.jpg" alt="M林境透視圖 1"></div>
+                    <div class="rendering-item"><img src="images/renderings/L2.jpg" alt="M林境透視圖 2"></div>
+                    <div class="rendering-item"><img src="images/renderings/L3.jpg" alt="M林境透視圖 3"></div>
+                    <div class="rendering-item"><img src="images/renderings/L4.jpg" alt="M林境透視圖 4"></div>
+                    <div class="rendering-item"><img src="images/renderings/L5.jpg" alt="M林境透視圖 5"></div>
+                    <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="M林境透視圖 6"></div>
                 </div>
             </div>
 
