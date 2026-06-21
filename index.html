@@ -67,7 +67,7 @@
         }
 
         .hero-content {
-            max-width: 850px; /* 稍微放大最大寬度，讓排版更從容 */
+            max-width: 850px;
             width: 100%;
         }
 
@@ -76,7 +76,7 @@
             display: flex;
             gap: 50px;
             align-items: flex-start;
-            margin-bottom: 60px; /* 與下方經歷拉開距離 */
+            margin-bottom: 60px;
         }
 
         .profile-text {
@@ -105,7 +105,7 @@
         /* 下半部：資訊與時間軸區塊 */
         .info {
             margin-top: 20px;
-            border-top: 1px solid #e5e5e6; /* 加一條淡淡的水平分界線 */
+            border-top: 1px solid #e5e5e6;
             padding-top: 40px;
         }
 
@@ -117,23 +117,21 @@
         }
         
         .info h3:first-child {
-            margin-top: 0; /* 第一個標題上方不留空 */
+            margin-top: 0;
         }
 
-        /* ==========================================
-           時間軸專用樣式（修正版：擁有完整寬度）
-           ========================================== */
+        /* 時間軸樣式 */
         .timeline {
             position: relative;
-            padding-left: 160px; /* 加大年份空間，防止字體壓縮 */
+            padding-left: 160px;
             margin-top: 25px;
-            max-width: 700px; /* 限制時間軸寬度，維持精緻感 */
+            max-width: 700px;
         }
 
         .timeline::before {
             content: '';
             position: absolute;
-            left: 125px; /* 主線對齊位置 */
+            left: 125px;
             top: 8px;
             bottom: 8px;
             width: 1px;
@@ -159,7 +157,7 @@
 
         .timeline-dot {
             position: absolute;
-            left: -38px; /* 精準置中於主線上 */
+            left: -38px;
             top: 8px;
             width: 6px;
             height: 6px;
@@ -194,7 +192,7 @@
 
         .project-role {
             display: inline-block;
-            width: 85px; /* 加寬職稱欄位，確保「景觀顧問」完美排版不擠壓 */
+            width: 85px;
             color: #888888;
         }
 
@@ -223,8 +221,8 @@
             margin-bottom: 8px;
         }
 
-        /* 作品區 */
-        .portfolio {
+        /* 作品區共用樣式 */
+        .portfolio, .renderings-section {
             padding: 100px 80px;
         }
 
@@ -238,13 +236,6 @@
             margin-bottom: 100px;
         }
 
-        .project-image {
-            width: 100%;
-            height: 500px;
-            background: #dfe6df;
-            border-radius: 10px;
-        }
-
         .project h3 {
             margin-top: 20px;
             margin-bottom: 10px;
@@ -255,7 +246,6 @@
             color: #666;
         }
 
-        /* 手機版與動畫 */
         .project img {
             width: 100%;
             border-radius: 10px;
@@ -277,6 +267,50 @@
             display: block;
         }
 
+        /* ==========================================
+           【全新加入】透視圖作品網格樣式
+           ========================================== */
+        .rendering-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 一行放2張圖，非常大器 */
+            gap: 40px; /* 圖片間距 */
+        }
+
+        .rendering-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .rendering-item img {
+            width: 100%;
+            height: 350px; /* 固定高度，讓不同比例的圖排起來一樣整齊 */
+            object-fit: cover; /* 自動裁切多餘部分 */
+            display: block;
+            transition: 0.4s;
+        }
+
+        .rendering-item:hover img {
+            transform: scale(1.03); /* 滑鼠滑過時輕微放大 */
+        }
+
+        .rendering-info {
+            margin-top: 15px;
+        }
+
+        .rendering-info h4 {
+            font-size: 1.1rem;
+            color: #2E3A32;
+            margin-bottom: 5px;
+        }
+
+        .rendering-info p {
+            font-size: 0.9rem;
+            color: #7a877d;
+        }
+
+        /* RWD 手機版適應 */
         @media(max-width:768px) {
             .sidebar {
                 width: 100%;
@@ -295,25 +329,17 @@
                 margin-left: 0;
             }
 
-            .hero {
+            .hero, .portfolio, .renderings-section {
                 padding: 40px 30px;
             }
 
             .profile-block {
-                flex-direction: column; /* 手機版時照片與自介改為上下排列 */
+                flex-direction: column;
                 gap: 30px;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .portfolio {
-                padding: 60px 30px;
-            }
-
-            .project-image {
-                height: 250px;
             }
 
             /* 時間軸手機版適應 */
@@ -338,6 +364,16 @@
                 left: -18px;
                 top: 8px;
             }
+
+            /* 透視圖網格手機版改為單欄排列 */
+            .rendering-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .rendering-item img {
+                height: 230px;
+            }
         }
     </style>
 </head>
@@ -347,7 +383,9 @@
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
         <a href="#portfolio">作品集</a>
+        <a href="#renderings">其他透視圖</a>
     </nav>
+    
     <div class="main">
         <section class="hero" id="home">
             <div class="hero-content">
@@ -375,7 +413,6 @@
                 </div>
 
                 <div class="info">
-                    
                     <h3>學/經歷</h3>
                     <div class="timeline">
                         <div class="timeline-section">
@@ -430,7 +467,6 @@
                     <h3>聯絡方式</h3>
                     <p class="contact-p">Email：hlpss93189@gmail.com</p>
                     <p class="contact-p">Phone：0989-111-239</p>
-
                 </div>
             </div>
         </section>
@@ -470,6 +506,47 @@
                 </a>
             </div>
         </section>
+
+        <section class="renderings-section" id="renderings">
+            <h2 class="section-title">Renderings</h2>
+            
+            <div class="rendering-grid">
+                
+                <div class="rendering-item">
+                    <img src="images/renderings/r1.jpg" alt="透視圖案面一" onerror="this.style.background='#dfe6df';">
+                    <div class="rendering-info">
+                        <h3>新潤建設【新潤朗格】透視圖一</h3>
+                        <p>Watercolor Wash / Ink Outline Aesthetic</p>
+                    </div>
+                </div>
+
+                <div class="rendering-item">
+                    <img src="images/renderings/r2.jpg" alt="透視圖案面二" onerror="this.style.background='#dfe6df';">
+                    <div class="rendering-info">
+                        <h3>泰隆鋼鐵【泰隆丰和】中庭景觀模擬</h3>
+                        <p>Architectural Landscape Hand-drawn Rendering</p>
+                    </div>
+                </div>
+
+                <div class="rendering-item">
+                    <img src="images/renderings/r3.jpg" alt="透視圖案面三" onerror="this.style.background='#dfe6df';">
+                    <div class="rendering-info">
+                        <h3>崇利建設【崇利中山】沿街步道透視</h3>
+                        <p>Material Texture Simulation - Granite & Pine trees</p>
+                    </div>
+                </div>
+
+                <div class="rendering-item">
+                    <img src="images/renderings/r4.jpg" alt="透視圖案面四" onerror="this.style.background='#dfe6df';">
+                    <div class="rendering-info">
+                        <h3>碧瑤總部景觀中庭局部透視</h3>
+                        <p>Cold-toned Lighting & Botanical Rendering</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     </div>
 </body>
 
