@@ -292,23 +292,22 @@
             background: #dfe6df;
         }
 
-        /* 讓透視圖滑鼠移上去時顯示「放大鏡/手指」功能提示 */
         .rendering-item img {
             width: 100%;
             height: 280px;
             object-fit: cover;
             display: block;
             transition: 0.4s ease;
-            cursor: zoom-in; /* 滑鼠游標變成放大鏡 */
+            cursor: zoom-in;
         }
 
         .rendering-item:hover img {
             transform: scale(1.03);
-            filter: brightness(0.95); /* 滑鼠滑過微暗，提示可以點擊 */
+            filter: brightness(0.95);
         }
 
         /* ==========================================
-           【全新加入】全螢幕大圖彈出視窗 (Lightbox) CSS
+           【相簿滑動升級版】全螢幕大圖彈出視窗 CSS
            ========================================== */
         .lightbox-overlay {
             position: fixed;
@@ -316,50 +315,108 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(18, 24, 20, 0.92); /* 帶有極深灰綠的高級感半透明黑底 */
+            background-color: rgba(18, 24, 20, 0.94);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 9999; /* 確保在最上層 */
+            z-index: 9999;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
+            touch-action: none; /* 停用瀏覽器預設手勢，交給 JS 處理換頁拖曳 */
         }
 
-        /* 當被啟動時顯示出來 */
         .lightbox-overlay.active {
             opacity: 1;
             pointer-events: auto;
         }
 
+        /* 集中大圖的容器，讓切換時有平滑效果 */
+        .lightbox-container {
+            position: relative;
+            max-width: 85%;
+            max-height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .lightbox-image {
-            max-width: 90%;
+            max-width: 100%;
             max-height: 85vh;
             object-fit: contain;
             border-radius: 6px;
             transform: scale(0.95);
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, opacity 0.2s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            user-select: none;
+            -webkit-user-drag: none;
         }
 
         .lightbox-overlay.active .lightbox-image {
-            transform: scale(1); /* 彈出時帶有微微放大的動態效果 */
+            transform: scale(1);
         }
 
+        /* 關閉按鈕 ✕ */
         .lightbox-close {
             position: absolute;
             top: 30px;
             right: 40px;
             color: #ffffff;
-            font-size: 35px;
-            font-weight: 300;
+            font-size: 38px;
+            font-weight: 200;
             cursor: pointer;
             transition: 0.2s;
+            z-index: 10001;
             user-select: none;
         }
 
         .lightbox-close:hover {
-            color: #5D7564; /* 叉叉滑過時變回你的主題植物綠 */
+            color: #5D7564;
+        }
+
+        /* ==========================================
+           左右換頁箭頭樣式
+           ========================================== */
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 45px;
+            font-weight: 300;
+            padding: 20px 15px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: 0.2s;
+            z-index: 10000;
+            user-select: none;
+        }
+
+        .lightbox-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .lightbox-prev {
+            left: 30px;
+        }
+
+        .lightbox-next {
+            right: 30px;
+        }
+
+        /* 圖片下方案名提示小字 */
+        .lightbox-caption {
+            position: absolute;
+            bottom: -40px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-align: center;
+            width: 100%;
         }
 
         /* RWD 手機版適應 */
@@ -427,10 +484,19 @@
                 height: 200px;
             }
 
+            /* 手機版隱藏實體箭頭，改由左右手勢滑動為主，畫面更乾淨 */
+            .lightbox-btn {
+                display: none;
+            }
+
+            .lightbox-container {
+                max-width: 92%;
+            }
+
             .lightbox-close {
                 top: 20px;
                 right: 25px;
-                font-size: 30px;
+                font-size: 32px;
             }
         }
     </style>
@@ -461,7 +527,7 @@
                         <h2>Landscape Design Portfolio</h2>
                         <p>
                             畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
-                            於學習及專案實作過程中，累積基地分析、景觀配置、設計提案及圖面整合經驗。
+                            於學習及專案實作過程中，累積基地 analysis、景觀配置、設計提案及圖面整合經驗。
                         </p>
                         <p>
                             重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
@@ -571,32 +637,32 @@
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="鳳鳴透視圖 1"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="鳳鳴透視圖 2"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="鳳鳴透視圖 3"></div>
-                    <div class="rendering-item"><img src="images/renderings/F2-4.jpg" alt="鳳鳴透視圖 4"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
+                    <div class="rendering-item"><img src="images/renderings/F2-4.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
                 </div>
             </div>
 
             <div class="rendering-group">
                 <div class="rendering-group-title">新潤建設【新潤朗格】</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="images/renderings/s1.jpg" alt="新潤朗格透視圖 1"></div>
-                    <div class="rendering-item"><img src="images/renderings/s2.jpg" alt="新潤朗格透視圖 2"></div>
-                    <div class="rendering-item"><img src="images/renderings/s3.jpg" alt="新潤朗格透視圖 3"></div>
-                    <div class="rendering-item"><img src="images/renderings/s4.jpg" alt="新潤朗格透視圖 4"></div>
+                    <div class="rendering-item"><img src="images/renderings/s1.jpg" alt="新潤建設【新潤朗格】"></div>
+                    <div class="rendering-item"><img src="images/renderings/s2.jpg" alt="新潤建設【新潤朗格】"></div>
+                    <div class="rendering-item"><img src="images/renderings/s3.jpg" alt="新潤建設【新潤朗格】"></div>
+                    <div class="rendering-item"><img src="images/renderings/s4.jpg" alt="新潤建設【新潤朗格】"></div>
                 </div>
             </div>
 
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
                 <div class="rendering-grid">
-                    <div class="rendering-item"><img src="images/renderings/L1.jpg" alt="M林境透視圖 1"></div>
-                    <div class="rendering-item"><img src="images/renderings/L2.jpg" alt="M林境透視圖 2"></div>
-                    <div class="rendering-item"><img src="images/renderings/L3.jpg" alt="M林境透視圖 3"></div>
-                    <div class="rendering-item"><img src="images/renderings/L4.jpg" alt="M林境透視圖 4"></div>
-                    <div class="rendering-item"><img src="images/renderings/L5.jpg" alt="M林境透視圖 5"></div>
-                    <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="M林境透視圖 6"></div>
+                    <div class="rendering-item"><img src="images/renderings/L1.jpg" alt="森鉅建設【森鉅M 林境】"></div>
+                    <div class="rendering-item"><img src="images/renderings/L2.jpg" alt="森鉅建設【森鉅M 林境】"></div>
+                    <div class="rendering-item"><img src="images/renderings/L3.jpg" alt="森鉅建設【森鉅M 林境】"></div>
+                    <div class="rendering-item"><img src="images/renderings/L4.jpg" alt="森鉅建設【森鉅M 林境】"></div>
+                    <div class="rendering-item"><img src="images/renderings/L5.jpg" alt="森鉅建設【森鉅M 林境】"></div>
+                    <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                 </div>
             </div>
 
@@ -606,43 +672,108 @@
 
     <div class="lightbox-overlay" id="lightboxOverlay">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
-        <img class="lightbox-image" id="lightboxImage" src="" alt="放大透視圖">
+        
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev">&#10094;</button>
+        
+        <div class="lightbox-container">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="放大透視圖">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        
+        <button class="lightbox-btn lightbox-next" id="lightboxNext">&#10095;</button>
     </div>
 
     <script>
         const overlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImage');
         const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+        const caption = document.getElementById('lightboxCaption');
         
-        // 1. 抓取「其他透視圖區塊」裡面的所有圖片
-        const renderingImages = document.querySelectorAll('.rendering-grid img');
+        // 1. 抓取這 14 張圖片，並轉換成陣列格式記錄索引
+        const imgList = Array.from(document.querySelectorAll('.rendering-grid img'));
+        let currentIndex = 0;
 
-        // 2. 為每一張透視圖綁定「點擊事件」
-        renderingImages.forEach(img => {
+        // 2. 點擊縮圖打開大圖
+        imgList.forEach((img, index) => {
             img.addEventListener('click', () => {
-                lightboxImg.src = img.src; // 把被點擊圖片的路徑複製到放大視窗中
-                overlay.classList.add('active'); // 顯示大圖外殼
-                document.body.style.overflow = 'hidden'; // 防止底層網頁跟著捲動
+                currentIndex = index;
+                updateLightbox();
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
 
-        // 3. 點擊叉叉（✕）關閉大圖
-        closeBtn.addEventListener('click', closeLightbox);
+        // 3. 更新大圖內容與淡入效果
+        function updateLightbox() {
+            lightboxImg.style.opacity = '0'; // 先隱藏圖片，做微小的切換轉場
+            setTimeout(() => {
+                const currentImg = imgList[currentIndex];
+                lightboxImg.src = currentImg.src;
+                caption.textContent = currentImg.alt + ` (${currentIndex + 1} / ${imgList.length})`; // 顯示案名與頁數
+                lightboxImg.style.opacity = '1';
+            }, 100);
+        }
 
-        // 4. 點擊旁邊黑色半透明區域也能關閉大圖
+        // 4. 前進、後退邏輯
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imgList.length; // 超過最後一張就回到第一張
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imgList.length) % imgList.length; // 倒退過第一張就去最後一張
+            updateLightbox();
+        }
+
+        // 按鈕點擊事件
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+        closeBtn.addEventListener('click', closeLightbox);
+        
+        // 點擊大圖本身或背景關閉
         overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) {
+            if (e.target === overlay || e.target === lightboxImg || e.target.classList.contains('lightbox-container')) {
                 closeLightbox();
             }
         });
 
-        // 關閉放大鏡視窗的共用功能
         function closeLightbox() {
             overlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; // 恢復網頁捲動
-            setTimeout(() => {
-                lightboxImg.src = ''; // 關閉後清空路徑，維持效能
-            }, 300);
+            document.body.style.overflow = 'auto';
+        }
+
+        // 5. 鍵盤控制（用左右方向鍵換頁，Esc 關閉）
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // 6. 📱 手機滑動（左右揮動換頁）手勢偵測
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        overlay.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        overlay.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            const threshold = 50; // 滑動超過 50px 才觸發換頁
+            
+            if (swipeDistance < -threshold) {
+                nextImage(); // 往左滑 $\rightarrow$ 看下一張
+            } else if (swipeDistance > threshold) {
+                prevImage(); // 往右滑 $\rightarrow$ 看上一張
+            }
         }
     </script>
 </body>
