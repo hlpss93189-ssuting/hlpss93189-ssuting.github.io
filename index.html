@@ -32,6 +32,7 @@
             background: white;
             border-right: 1px solid #e5e5e5;
             padding: 60px 30px;
+            z-index: 100; /* 確保選單固定在最上層 */
         }
 
         .logo {
@@ -56,6 +57,7 @@
         /* 右側內容 */
         .main {
             margin-left: 220px;
+            /* 移除多餘的定位，讓子元素正常在文件流中排列 */
         }
 
         /* 首頁區塊 */
@@ -224,6 +226,8 @@
         /* 作品區共用樣式 */
         .portfolio, .renderings-section {
             padding: 100px 80px;
+            max-width: 1200px; /* 限制寬度，避免在大螢幕下無限撐大 */
+            width: 100%;
         }
 
         .section-title {
@@ -234,6 +238,7 @@
 
         .project {
             margin-bottom: 100px;
+            cursor: pointer;
         }
 
         .project h3 {
@@ -255,10 +260,6 @@
 
         .project:hover img {
             transform: scale(1.02);
-        }
-
-        .project {
-            cursor: pointer;
         }
 
         .project a {
@@ -493,19 +494,20 @@
 </head>
 
 <body>
-  <!-- 左側選單 -->
+    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
         <a href="#portfolio">作品集</a>
         <a href="#renderings">其他透視圖</a>
-        <a href="#other">其他實績</a> <!-- 新增這一行 -->
+        <a href="#other">其他實績</a>
     </nav>
+
+    <!-- 右側內容區 -->
     <div class="main">
         <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
-
                 <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
@@ -617,7 +619,7 @@
 
             <div class="project">
                 <a href="project01.html">
-                    <img src="images/neihu/n1.jpg">
+                    <img src="images/neihu/n1.jpg" alt="內湖數據中心">
                     <h3>內湖數據中心</h3>
                     <p>Data Center Landscape Design</p>
                 </a>
@@ -625,25 +627,23 @@
 
             <div class="project">
                 <a href="project02.html">
-                    <img src="images/fengming/f1.jpg">
+                    <img src="images/fengming/f1.jpg" alt="森鉅鳳鳴集合住宅案">
                     <h3>森鉅鳳鳴集合住宅案</h3>
                     <p>Residential Landscape Design</p>
                 </a>
             </div>
 
-<div class="project">
-    <!-- 把原本的 images/yuanta/y1.jpg 改成你的獨立專案網頁路徑 -->
-    <a href="project03.html">
-        <img src="images/yuanta/y1.jpg">
-        <h3>元大大同大樓</h3>
-        <p>Commercial Landscape Design</p>
-    </a>
-</div>
+            <div class="project">
+                <a href="project03.html">
+                    <img src="images/yuanta/y1.jpg" alt="元大大同大樓">
+                    <h3>元大大同大樓</h3>
+                    <p>Commercial Landscape Design</p>
+                </a>
             </div>
 
             <div class="project">
                 <a href="project04.html">
-                    <img src="images/biyao/b1.jpg">
+                    <img src="images/biyao/b1.jpg" alt="碧瑤總部新莊副都心">
                     <h3>碧瑤總部新莊副都心</h3>
                     <p>Headquarters Landscape Design</p>
                 </a>
@@ -688,9 +688,9 @@
                     <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                 </div>
             </div>
-
         </section>
-<!-- 其他實績區塊 (實際照片展示) -->
+
+        <!-- 其他實績區塊 (實際照片展示) -->
         <section class="renderings-section" id="other">
             <h2 class="section-title">Other Works</h2>
             
@@ -716,8 +716,7 @@
                 </div>
             </div>
         </section>
-
-    </div>
+    </div> <!-- 這是右側主內容區 (.main) 的正確閉合標籤 -->
 
     <!-- 大圖彈出視窗底層結構 -->
     <div class="lightbox-overlay" id="lightboxOverlay">
