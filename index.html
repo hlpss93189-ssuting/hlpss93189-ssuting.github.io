@@ -268,46 +268,42 @@
         }
 
         /* ==========================================
-           【全新加入】透視圖作品網格樣式
+           透視圖作品分組樣式
            ========================================== */
+        .rendering-group {
+            margin-bottom: 60px; /* 案子與案子之間的間距 */
+        }
+
+        .rendering-group-title {
+            font-size: 1.3rem;
+            color: #2E3A32;
+            margin-bottom: 20px;
+            border-left: 3px solid #5D7564; /* 左側精緻的灰綠小色條 */
+            padding-left: 12px;
+        }
+
         .rendering-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 一行放2張圖，非常大器 */
-            gap: 40px; /* 圖片間距 */
+            grid-template-columns: repeat(2, 1fr); /* 一行放2張圖，乾淨清晰 */
+            gap: 25px; /* 圖片彼此的間距 */
         }
 
         .rendering-item {
-            position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            cursor: pointer;
+            border-radius: 8px;
+            background: #dfe6df; /* 圖片加載前的底色 */
         }
 
         .rendering-item img {
             width: 100%;
-            height: 350px; /* 固定高度，讓不同比例的圖排起來一樣整齊 */
-            object-fit: cover; /* 自動裁切多餘部分 */
+            height: 280px; /* 控制單張圖的高度，排版極度整齊 */
+            object-fit: cover;
             display: block;
-            transition: 0.4s;
+            transition: 0.4s ease;
         }
 
         .rendering-item:hover img {
-            transform: scale(1.03); /* 滑鼠滑過時輕微放大 */
-        }
-
-        .rendering-info {
-            margin-top: 15px;
-        }
-
-        .rendering-info h4 {
-            font-size: 1.1rem;
-            color: #2E3A32;
-            margin-bottom: 5px;
-        }
-
-        .rendering-info p {
-            font-size: 0.9rem;
-            color: #7a877d;
+            transform: scale(1.03);
         }
 
         /* RWD 手機版適應 */
@@ -342,7 +338,7 @@
                 font-size: 2.5rem;
             }
 
-            /* 時間軸手機版適應 */
+            /* 時間軸手機版 */
             .timeline {
                 padding-left: 20px;
             }
@@ -365,20 +361,21 @@
                 top: 8px;
             }
 
-            /* 透視圖網格手機版改為單欄排列 */
+            /* 手機版時透視圖改為單欄 */
             .rendering-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 15px;
             }
             
             .rendering-item img {
-                height: 230px;
+                height: 200px;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
@@ -387,9 +384,11 @@
     </nav>
     
     <div class="main">
+        <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
 
+                <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
                          width:300px;
@@ -412,6 +411,7 @@
                     </div>
                 </div>
 
+                <!-- 下半部：學經歷時間軸、技能與聯絡方式 -->
                 <div class="info">
                     <h3>學/經歷</h3>
                     <div class="timeline">
@@ -471,6 +471,7 @@
             </div>
         </section>
         
+        <!-- 作品集區塊 -->
         <section class="portfolio" id="portfolio">
             <h2 class="section-title">Projects</h2>
 
@@ -507,44 +508,47 @@
             </div>
         </section>
 
+        <!-- ==========================================
+           【全新改版】按案子分類的透視圖展示區
+           ========================================== -->
         <section class="renderings-section" id="renderings">
             <h2 class="section-title">Renderings</h2>
             
-            <div class="rendering-grid">
-                
-                <div class="rendering-item">
-                    <img src="images/renderings/r1.jpg" alt="透視圖案面一" onerror="this.style.background='#dfe6df';">
-                    <div class="rendering-info">
-                        <h3>新潤建設【新潤朗格】透視圖一</h3>
-                        <p>Watercolor Wash / Ink Outline Aesthetic</p>
-                    </div>
+            <!-- 案子 A: 森鉅建設鳳鳴集合住宅案 (4張) -->
+            <div class="rendering-group">
+                <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
+                <div class="rendering-grid">
+                    <div class="rendering-item"><img src="renderings/F2-1.jpg" alt="鳳鳴透視圖 1"></div>
+                    <div class="rendering-item"><img src="renderings/F2-2.jpg" alt="鳳鳴透視圖 2"></div>
+                    <div class="rendering-item"><img src="renderings/F2-3.jpg" alt="鳳鳴透視圖 3"></div>
+                    <div class="rendering-item"><img src="renderings/F2-4.jpg" alt="鳳鳴透視圖 4"></div>
                 </div>
-
-                <div class="rendering-item">
-                    <img src="images/renderings/r2.jpg" alt="透視圖案面二" onerror="this.style.background='#dfe6df';">
-                    <div class="rendering-info">
-                        <h3>泰隆鋼鐵【泰隆丰和】中庭景觀模擬</h3>
-                        <p>Architectural Landscape Hand-drawn Rendering</p>
-                    </div>
-                </div>
-
-                <div class="rendering-item">
-                    <img src="images/renderings/r3.jpg" alt="透視圖案面三" onerror="this.style.background='#dfe6df';">
-                    <div class="rendering-info">
-                        <h3>崇利建設【崇利中山】沿街步道透視</h3>
-                        <p>Material Texture Simulation - Granite & Pine trees</p>
-                    </div>
-                </div>
-
-                <div class="rendering-item">
-                    <img src="images/renderings/r4.jpg" alt="透視圖案面四" onerror="this.style.background='#dfe6df';">
-                    <div class="rendering-info">
-                        <h3>碧瑤總部景觀中庭局部透視</h3>
-                        <p>Cold-toned Lighting & Botanical Rendering</p>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- 案子 B: 新潤建設【新潤朗格】 (4張) -->
+            <div class="rendering-group">
+                <div class="rendering-group-title">新潤建設【新潤朗格】</div>
+                <div class="rendering-grid">
+                    <div class="rendering-item"><img src="renderings/s1.jpg" alt="新潤朗格透視圖 1"></div>
+                    <div class="rendering-item"><img src="renderings/s2.jpg" alt="新潤朗格透視圖 2"></div>
+                    <div class="rendering-item"><img src="renderings/s3.jpg" alt="新潤朗格透視圖 3"></div>
+                    <div class="rendering-item"><img src="renderings/s4.jpg" alt="新潤朗格透視圖 4"></div>
+                </div>
+            </div>
+
+            <!-- 案子 C: 森鉅建設【森鉅M 林境】 (6張) -->
+            <div class="rendering-group">
+                <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
+                <div class="rendering-grid">
+                    <div class="rendering-item"><img src="renderings/L1.jpg" alt="M林境透視圖 1"></div>
+                    <div class="rendering-item"><img src="renderings/L2.jpg" alt="M林境透視圖 2"></div>
+                    <div class="rendering-item"><img src="renderings/L3.jpg" alt="M林境透視圖 3"></div>
+                    <div class="rendering-item"><img src="renderings/L4.jpg" alt="M林境透視圖 4"></div>
+                    <div class="rendering-item"><img src="renderings/L5.jpg" alt="M林境透視圖 5"></div>
+                    <div class="rendering-item"><img src="renderings/L6.jpg" alt="M林境透視圖 6"></div>
+                </div>
+            </div>
+
         </section>
 
     </div>
