@@ -306,9 +306,7 @@
             filter: brightness(0.95);
         }
 
-        /* ==========================================
-           【相簿滑動升級版】全螢幕大圖彈出視窗 CSS
-           ========================================== */
+        /* 全螢幕大圖彈出視窗 CSS */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -323,7 +321,7 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            touch-action: none; /* 停用瀏覽器預設手勢，交給 JS 處理換頁拖曳 */
+            touch-action: none;
         }
 
         .lightbox-overlay.active {
@@ -331,7 +329,6 @@
             pointer-events: auto;
         }
 
-        /* 集中大圖的容器，讓切換時有平滑效果 */
         .lightbox-container {
             position: relative;
             max-width: 85%;
@@ -357,7 +354,6 @@
             transform: scale(1);
         }
 
-        /* 關閉按鈕 ✕ */
         .lightbox-close {
             position: absolute;
             top: 30px;
@@ -375,9 +371,6 @@
             color: #5D7564;
         }
 
-        /* ==========================================
-           左右換頁箭頭樣式
-           ========================================== */
         .lightbox-btn {
             position: absolute;
             top: 50%;
@@ -408,7 +401,6 @@
             right: 30px;
         }
 
-        /* 圖片下方案名提示小字 */
         .lightbox-caption {
             position: absolute;
             bottom: -40px;
@@ -474,7 +466,6 @@
                 top: 8px;
             }
 
-            /* 手機版時透視圖改為單欄 */
             .rendering-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -484,7 +475,6 @@
                 height: 200px;
             }
 
-            /* 手機版隱藏實體箭頭，改由左右手勢滑動為主，畫面更乾淨 */
             .lightbox-btn {
                 display: none;
             }
@@ -503,6 +493,7 @@
 </head>
 
 <body>
+    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
@@ -511,9 +502,11 @@
     </nav>
     
     <div class="main">
+        <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
 
+                <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
                          width:300px;
@@ -527,7 +520,7 @@
                         <h2>Landscape Design Portfolio</h2>
                         <p>
                             畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
-                            於學習及專案實作過程中，累積基地 analysis、景觀配置、設計提案及圖面整合經驗。
+                            於學習及專案實作過程中，累積基地分析、景觀配置、設計提案及圖面整合經驗。
                         </p>
                         <p>
                             重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
@@ -536,6 +529,7 @@
                     </div>
                 </div>
 
+                <!-- 下半部：學經歷時間軸、技能與聯絡方式 -->
                 <div class="info">
                     <h3>學/經歷</h3>
                     <div class="timeline">
@@ -545,13 +539,27 @@
                             <div class="timeline-content">
                                 <div class="company-title">六國景觀設計有限公司</div>
                                 <ul class="project-list">
-                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">碧瑤新莊總部</span></li>
-                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">新潤建設【新潤朗格】</span></li>
-                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">泰隆鋼鐵【泰隆丰和】</span></li>
-                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">崇利建設【崇利中山】</span></li>
-                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">元大大同大樓都更案</span></li>
-                                    <li class="project-item"><span class="project-role">景觀顧問</span><span class="project-name">台泥總部大樓【Tower Urban Oasis】</span></li>
-                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅建設鳳鳴集合住宅案</span></li>
+                                    <li class="project-item"><span class="project-role">專案</span><span class="project-name">內湖數據中心競圖</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">南港彰化銀行競圖</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅鳳鳴263地號</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">宏國凱撒辦公大樓</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">宏國大溪</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">堃達中和福祥段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">陳廷杰-碧瑤總部新莊副都心</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">謙和板橋文化段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">富邦北投承德大樓-競圖</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅鳳鳴26地號</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅林口麗林段492地號</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">森鉅林口麗林段512地號</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">水美海鷗段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">三群泰山塭仔圳</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">新潤建設長春段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">華業鴻禧花園都更</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">錦州街危老重建規劃案</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">吳非士泰隆中和福祥段</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">吳非士新美齊板橋(成案)</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">大同大樓案</span></li>
+                                    <li class="project-item"><span class="project-role">專案助理</span><span class="project-name">華業台灣水泥</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -595,6 +603,7 @@
             </div>
         </section>
         
+        <!-- 作品集區塊 -->
         <section class="portfolio" id="portfolio">
             <h2 class="section-title">Projects</h2>
 
@@ -631,9 +640,11 @@
             </div>
         </section>
 
+        <!-- 按案子分類的透視圖展示區 -->
         <section class="renderings-section" id="renderings">
             <h2 class="section-title">Renderings</h2>
             
+            <!-- 案子 A: 森鉅建設鳳鳴集合住宅案 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
                 <div class="rendering-grid">
@@ -644,6 +655,7 @@
                 </div>
             </div>
 
+            <!-- 案子 B: 新潤建設【新潤朗格】 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">新潤建設【新潤朗格】</div>
                 <div class="rendering-grid">
@@ -654,6 +666,7 @@
                 </div>
             </div>
 
+            <!-- 案子 C: 森鉅建設【森鉅M 林境】 (6張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
                 <div class="rendering-grid">
@@ -670,6 +683,7 @@
 
     </div>
 
+    <!-- 大圖彈出視窗底層結構 -->
     <div class="lightbox-overlay" id="lightboxOverlay">
         <span class="lightbox-close" id="lightboxClose">&times;</span>
         
@@ -683,6 +697,7 @@
         <button class="lightbox-btn lightbox-next" id="lightboxNext">&#10095;</button>
     </div>
 
+    <!-- 控制連續滑動換頁的 JavaScript -->
     <script>
         const overlay = document.getElementById('lightboxOverlay');
         const lightboxImg = document.getElementById('lightboxImage');
@@ -691,11 +706,9 @@
         const nextBtn = document.getElementById('lightboxNext');
         const caption = document.getElementById('lightboxCaption');
         
-        // 1. 抓取這 14 張圖片，並轉換成陣列格式記錄索引
         const imgList = Array.from(document.querySelectorAll('.rendering-grid img'));
         let currentIndex = 0;
 
-        // 2. 點擊縮圖打開大圖
         imgList.forEach((img, index) => {
             img.addEventListener('click', () => {
                 currentIndex = index;
@@ -705,34 +718,30 @@
             });
         });
 
-        // 3. 更新大圖內容與淡入效果
         function updateLightbox() {
-            lightboxImg.style.opacity = '0'; // 先隱藏圖片，做微小的切換轉場
+            lightboxImg.style.opacity = '0';
             setTimeout(() => {
                 const currentImg = imgList[currentIndex];
                 lightboxImg.src = currentImg.src;
-                caption.textContent = currentImg.alt + ` (${currentIndex + 1} / ${imgList.length})`; // 顯示案名與頁數
+                caption.textContent = currentImg.alt + ` (${currentIndex + 1} / ${imgList.length})`;
                 lightboxImg.style.opacity = '1';
             }, 100);
         }
 
-        // 4. 前進、後退邏輯
         function nextImage() {
-            currentIndex = (currentIndex + 1) % imgList.length; // 超過最後一張就回到第一張
+            currentIndex = (currentIndex + 1) % imgList.length;
             updateLightbox();
         }
 
         function prevImage() {
-            currentIndex = (currentIndex - 1 + imgList.length) % imgList.length; // 倒退過第一張就去最後一張
+            currentIndex = (currentIndex - 1 + imgList.length) % imgList.length;
             updateLightbox();
         }
 
-        // 按鈕點擊事件
         nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
         prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
         closeBtn.addEventListener('click', closeLightbox);
         
-        // 點擊大圖本身或背景關閉
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay || e.target === lightboxImg || e.target.classList.contains('lightbox-container')) {
                 closeLightbox();
@@ -744,7 +753,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // 5. 鍵盤控制（用左右方向鍵換頁，Esc 關閉）
         document.addEventListener('keydown', (e) => {
             if (!overlay.classList.contains('active')) return;
             if (e.key === 'ArrowRight') nextImage();
@@ -752,7 +760,6 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // 6. 📱 手機滑動（左右揮動換頁）手勢偵測
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -767,12 +774,12 @@
 
         function handleSwipe() {
             const swipeDistance = touchEndX - touchStartX;
-            const threshold = 50; // 滑動超過 50px 才觸發換頁
+            const threshold = 50;
             
             if (swipeDistance < -threshold) {
-                nextImage(); // 往左滑 $\rightarrow$ 看下一張
+                nextImage();
             } else if (swipeDistance > threshold) {
-                prevImage(); // 往右滑 $\rightarrow$ 看上一張
+                prevImage();
             }
         }
     </script>
