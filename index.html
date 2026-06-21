@@ -267,7 +267,7 @@
             display: block;
         }
 
-        /* 透視圖與其他展示區共用樣式 */
+        /* 透視圖作品分組樣式 */
         .rendering-group {
             margin-bottom: 60px;
         }
@@ -282,16 +282,8 @@
 
         .rendering-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
-        }
-
-        /* 在手機版時自動切換回單欄，方便手機閱讀 */
-        @media(max-width: 768px) {
-            .rendering-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
         }
 
         .rendering-item {
@@ -473,6 +465,11 @@
                 left: -18px;
                 top: 8px;
             }
+
+            .rendering-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
             
             .rendering-item img {
                 height: 200px;
@@ -496,18 +493,20 @@
 </head>
 
 <body>
+    <!-- 左側選單 -->
     <nav class="sidebar">
         <div class="logo">SSUTING</div>
         <a href="#home">首頁</a>
         <a href="#portfolio">作品集</a>
         <a href="#renderings">其他透視圖</a>
-        <a href="#other">Other</a>
     </nav>
     
     <div class="main">
+        <!-- 首頁區塊 -->
         <section class="hero" id="home">
             <div class="hero-content">
 
+                <!-- 上半部：大頭照 + 自我介紹 -->
                 <div class="profile-block">
                     <img src="9B80F3DA-FC3D-4CDC-974D-E5A0A3BAE340.jpg" style="
                          width:300px;
@@ -521,7 +520,7 @@
                         <h2>Landscape Design Portfolio</h2>
                         <p>
                             畢業於中原大學地景建築學系，有近6年工作經驗，具備景觀規劃、空間設計與環境整合能力。
-                            於專案實作過程中，累積豐富的基地分析、景觀配置、設計提案、施工圖說繪製與預算控制經驗。
+                            於學習及專案實作過程中，累積基地分析、景觀配置、設計提案到施工圖面整合與預算編列的完整經驗。
                         </p>
                         <p>
                             重視空間與環境的互動關係，透過景觀設計回應場域特性與使用需求，
@@ -530,19 +529,12 @@
                     </div>
                 </div>
 
+                <!-- 下半部：學經歷時間軸、技能與聯絡方式 -->
                 <div class="info">
                     <h3>學/經歷</h3>
                     <div class="timeline">
                         <div class="timeline-section">
-                            <div class="timeline-time">2026</div>
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <div class="company-title">EAGLE 建築模型事務所 - EAGLE MODEL STUDIO</div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-section">
-                            <div class="timeline-time">2016 – 2026</div>
+                            <div class="timeline-time">2020 – 2026</div>
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
                                 <div class="company-title">六國景觀設計有限公司</div>
@@ -573,13 +565,21 @@
                         </div>
 
                         <div class="timeline-section">
-                            <div class="timeline-time">2015 – 2016</div>
+                            <div class="timeline-time">2020</div>
                             <div class="timeline-dot"></div>
                             <div class="timeline-content">
-                                <div class="company-title">中原大學地景城鄉規劃研究室</div>
+                                <div class="company-title">中原大學地景建築學系畢業</div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-section">
+                            <div class="timeline-time">2018 – 2019</div>
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <div class="company-title">實習</div>
                                 <ul class="project-list">
-                                    <li class="project-item"><span class="project-role">研究助理</span><span class="project-name">新竹海軍第六燃料廠</span></li>
-                                    <li class="project-item"><span class="project-role">研究助理</span><span class="project-name">人本街道設計手冊</span></li>
+                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新竹光明新村測繪調查</span></li>
+                                    <li class="project-item"><span class="project-role">實習生</span><span class="project-name">新富町市場活化（共感團隊）</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -603,6 +603,7 @@
             </div>
         </section>
         
+        <!-- 作品集區塊 -->
         <section class="portfolio" id="portfolio">
             <h2 class="section-title">Projects</h2>
 
@@ -622,12 +623,14 @@
                 </a>
             </div>
 
-            <div class="project">
-                <a href="project03.html">
-                    <img src="images/yuanta/y1.jpg">
-                    <h3>元大大同大樓</h3>
-                    <p>Commercial Landscape Design</p>
-                </a>
+<div class="project">
+    <!-- 把原本的 images/yuanta/y1.jpg 改成你的獨立專案網頁路徑 -->
+    <a href="project03.html">
+        <img src="images/yuanta/y1.jpg">
+        <h3>元大大同大樓</h3>
+        <p>Commercial Landscape Design</p>
+    </a>
+</div>
             </div>
 
             <div class="project">
@@ -639,12 +642,14 @@
             </div>
         </section>
 
+        <!-- 按案子分類的透視圖展示區 -->
         <section class="renderings-section" id="renderings">
             <h2 class="section-title">Renderings</h2>
             
+            <!-- 案子 A: 森鉅建設鳳鳴集合住宅案 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設鳳鳴集合住宅案</div>
-                <div class="rendering-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="rendering-grid">
                     <div class="rendering-item"><img src="images/renderings/F2-1.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
                     <div class="rendering-item"><img src="images/renderings/F2-2.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
                     <div class="rendering-item"><img src="images/renderings/F2-3.jpg" alt="森鉅建設鳳鳴集合住宅案"></div>
@@ -652,9 +657,10 @@
                 </div>
             </div>
 
+            <!-- 案子 B: 新潤建設【新潤朗格】 (4張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">新潤建設【新潤朗格】</div>
-                <div class="rendering-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="rendering-grid">
                     <div class="rendering-item"><img src="images/renderings/s1.jpg" alt="新潤建設【新潤朗格】"></div>
                     <div class="rendering-item"><img src="images/renderings/s2.jpg" alt="新潤建設【新潤朗格】"></div>
                     <div class="rendering-item"><img src="images/renderings/s3.jpg" alt="新潤建設【新潤朗格】"></div>
@@ -662,9 +668,10 @@
                 </div>
             </div>
 
+            <!-- 案子 C: 森鉅建設【森鉅M 林境】 (6張) -->
             <div class="rendering-group">
                 <div class="rendering-group-title">森鉅建設【森鉅M 林境】</div>
-                <div class="rendering-grid" style="grid-template-columns: repeat(2, 1fr);">
+                <div class="rendering-grid">
                     <div class="rendering-item"><img src="images/renderings/L1.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                     <div class="rendering-item"><img src="images/renderings/L2.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                     <div class="rendering-item"><img src="images/renderings/L3.jpg" alt="森鉅建設【森鉅M 林境】"></div>
@@ -673,6 +680,111 @@
                     <div class="rendering-item"><img src="images/renderings/L6.jpg" alt="森鉅建設【森鉅M 林境】"></div>
                 </div>
             </div>
+
         </section>
 
-        <section class="renderings-section" id="other" style="border-top
+    </div>
+
+    <!-- 大圖彈出視窗底層結構 -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev">&#10094;</button>
+        
+        <div class="lightbox-container">
+            <img class="lightbox-image" id="lightboxImage" src="" alt="放大透視圖">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+        
+        <button class="lightbox-btn lightbox-next" id="lightboxNext">&#10095;</button>
+    </div>
+
+    <!-- 控制連續滑動換頁的 JavaScript -->
+    <script>
+        const overlay = document.getElementById('lightboxOverlay');
+        const lightboxImg = document.getElementById('lightboxImage');
+        const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+        const caption = document.getElementById('lightboxCaption');
+        
+        const imgList = Array.from(document.querySelectorAll('.rendering-grid img'));
+        let currentIndex = 0;
+
+        imgList.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentIndex = index;
+                updateLightbox();
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function updateLightbox() {
+            lightboxImg.style.opacity = '0';
+            setTimeout(() => {
+                const currentImg = imgList[currentIndex];
+                lightboxImg.src = currentImg.src;
+                caption.textContent = currentImg.alt + ` (${currentIndex + 1} / ${imgList.length})`;
+                lightboxImg.style.opacity = '1';
+            }, 100);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % imgList.length;
+            updateLightbox();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + imgList.length) % imgList.length;
+            updateLightbox();
+        }
+
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+        closeBtn.addEventListener('click', closeLightbox);
+        
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay || e.target === lightboxImg || e.target.classList.contains('lightbox-container')) {
+                closeLightbox();
+            }
+        });
+
+        function closeLightbox() {
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        overlay.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        overlay.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            const threshold = 50;
+            
+            if (swipeDistance < -threshold) {
+                nextImage();
+            } else if (swipeDistance > threshold) {
+                prevImage();
+            }
+        }
+    </script>
+</body>
+
+</html>
